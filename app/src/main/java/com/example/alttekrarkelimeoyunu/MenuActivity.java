@@ -2,25 +2,56 @@ package com.example.alttekrarkelimeoyunu;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MenuActivity extends AppCompatActivity {
+
+    // Değişkenleri tanımlıyoruz
+    EditText isimKutusu, sifreKutusu;
+    Button girisButonu, kayitButonu;
+    VeritabaniYardimcisi vt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // XML’deki ID'ler ile Java'da bağla
-        TextView tv1 = findViewById(R.id.textView);   // eskiden text_title
-        TextView tv2 = findViewById(R.id.textView2);  // eskiden button_start
+        // XML elemanlarını Java'ya bağlıyoruz
+        isimKutusu = findViewById(R.id.editIsim);
+        sifreKutusu = findViewById(R.id.editSifre);
+        girisButonu = findViewById(R.id.btnGiris);
+        kayitButonu = findViewById(R.id.btnKayit);
 
-        // Tıklama işlemi
-        tv2.setOnClickListener(new View.OnClickListener() {
+        vt = new VeritabaniYardimcisi(this);
+
+        // KAYIT OLMA İŞLEMİ
+        kayitButonu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv1.setText("Oyun Başladı!");
+                String gelenIsim = isimKutusu.getText().toString();
+                String gelenSifre = sifreKutusu.getText().toString();
+
+                if (vt.kullaniciKaydet(gelenIsim, gelenSifre)) {
+                    Toast.makeText(MenuActivity.this, "Kayıt Başarılı!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // GİRİŞ YAPMA İŞLEMİ
+        girisButonu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String gelenIsim = isimKutusu.getText().toString();
+                String gelenSifre = sifreKutusu.getText().toString();
+
+                if (vt.girisKontrol(gelenIsim, gelenSifre)) {
+                    Toast.makeText(MenuActivity.this, "Hoş geldin " + gelenIsim, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MenuActivity.this, "Hatalı Giriş!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
