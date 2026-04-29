@@ -1,57 +1,38 @@
 package com.example.alttekrarkelimeoyunu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MenuActivity extends AppCompatActivity {
 
-    // Değişkenleri tanımlıyoruz
-    EditText isimKutusu, sifreKutusu;
-    Button girisButonu, kayitButonu;
-    VeritabaniYardimcisi vt;
+    Button btnEkle, btnListele;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_menu); // Menü tasarımı burada olmalı
 
-        // XML elemanlarını Java'ya bağlıyoruz
-        isimKutusu = findViewById(R.id.editIsim);
-        sifreKutusu = findViewById(R.id.editSifre);
-        girisButonu = findViewById(R.id.btnGiris);
-        kayitButonu = findViewById(R.id.btnKayit);
+        btnEkle = findViewById(R.id.btnKelimeEkle); // XML'deki ID'lerinle aynı olmalı
+        btnListele = findViewById(R.id.btnKelimeListele);
 
-        vt = new VeritabaniYardimcisi(this);
-
-        // KAYIT OLMA İŞLEMİ
-        kayitButonu.setOnClickListener(new View.OnClickListener() {
+        // Kelime Ekleme Sayfasına Git
+        btnEkle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String gelenIsim = isimKutusu.getText().toString();
-                String gelenSifre = sifreKutusu.getText().toString();
-
-                if (vt.kullaniciKaydet(gelenIsim, gelenSifre)) {
-                    Toast.makeText(MenuActivity.this, "Kayıt Başarılı!", Toast.LENGTH_SHORT).show();
-                }
+                Intent intent = new Intent(MenuActivity.this, KelimeEkleActivity.class);
+                startActivity(intent);
             }
         });
 
-        // GİRİŞ YAPMA İŞLEMİ
-        girisButonu.setOnClickListener(new View.OnClickListener() {
+        // Listeleme Sayfasına Git
+        btnListele.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String gelenIsim = isimKutusu.getText().toString();
-                String gelenSifre = sifreKutusu.getText().toString();
-
-                if (vt.girisKontrol(gelenIsim, gelenSifre)) {
-                    Toast.makeText(MenuActivity.this, "Hoş geldin " + gelenIsim, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(MenuActivity.this, "Hatalı Giriş!", Toast.LENGTH_SHORT).show();
-                }
+                Intent intent = new Intent(MenuActivity.this, KelimeListeleActivity.class);
+                startActivity(intent);
             }
         });
     }
