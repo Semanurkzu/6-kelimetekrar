@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/imgKelime"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:src="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/txtSoru"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="Bu kelimenin Türkçe karşılığı nedir?"
+        android:textColor="#333333"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnSikA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="A Şıkkı" />
+
+    <Button
+        android:id="@+id/btnSikB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="B Şıkkı" />
+
+    <Button
+        android:id="@+id/btnSikC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="C Şıkkı" />
+
+    <Button
+        android:id="@+id/btnSikD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="D Şıkkı" />
+</LinearLayout>

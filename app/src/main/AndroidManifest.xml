@@ -11,17 +11,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AltıTekrarKelimeOyunu">
+
         <activity
             android:name=".MenuActivity"
             android:exported="true"
-            android:label="@string/app_name"
+            android:label="Kelime Ezberle - Giriş"
             android:theme="@style/Theme.AltıTekrarKelimeOyunu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".SinavActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".AnalizActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".BulmacaActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
 
     </application>
 

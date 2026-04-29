@@ -40,7 +40,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        // GİRİŞ YAPMA İŞLEMİ
+
         girisButonu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
