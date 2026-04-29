@@ -3,32 +3,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:padding="20dp"
-    android:gravity="center">
+    android:background="#F5F5F5">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KELİME ÖĞREN"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginBottom="40dp" />
 
     <EditText
         android:id="@+id/editIsim"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="İsim Yazın" />
+        android:hint="Kullanıcı Adı"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:drawable/editbox_background" />
 
     <EditText
         android:id="@+id/editSifre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Şifre Yazın"
-        android:inputType="textPassword" />
+        android:hint="Şifre"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp"
+        android:background="@android:drawable/editbox_background" />
 
     <Button
         android:id="@+id/btnGiris"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="GİRİŞ YAP" />
+        android:text="GİRİŞ YAP"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="10dp" />
 
     <Button
         android:id="@+id/btnKayit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="KAYIT OL" />
+        android:text="KAYIT OL"
+        android:backgroundTint="#2196F3"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:id="@+id/tvSifreUnuttum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Şifremi Unuttum?"
+        android:textColor="#757575"
+        android:textSize="14sp"
+        android:padding="10dp"
+        android:clickable="true"
+        android:focusable="true" />
 
 </LinearLayout>
