@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Uygulamanın API'den veri çekebilmesi için gerekli internet izni -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,38 +16,32 @@
         android:theme="@style/Theme.AltıTekrarKelimeOyunu"
         tools:targetApi="31">
 
+        <!-- 1. ADIM: AÇILIŞ EKRANI (SPLASH)
+             Uygulama ikona basıldığında ilk bu activity çalışır. -->
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".AcilisEkraniActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"> <!-- Üst barın görünmemesi için -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <!-- 2. ADIM: GİRİŞ EKRANI (MAIN)
+             Açılış ekranından 2.5 saniye sonra buraya yönlendirme yapılır. -->
         <activity
-            android:name=".MenuActivity"
-            android:exported="false" />
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" /> <!-- Klavye açılınca tasarımı bozmasın diye -->
 
-        <activity
-            android:name=".KelimeEkleActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".KelimeListeleActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".SinavActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".AnalizActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".AyarlarActivity"
-            android:exported="false" />
+        <!-- DİĞER SAYFALAR -->
+        <activity android:name=".MenuActivity" android:exported="false" />
+        <activity android:name=".KelimeEkleActivity" android:exported="true" />
+        <activity android:name=".KelimeListeleActivity" android:exported="true" />
+        <activity android:name=".SinavActivity" android:exported="true" />
+        <activity android:name=".AnalizActivity" android:exported="true" />
+        <activity android:name=".AyarlarActivity" android:exported="true" />
 
     </application>
 
